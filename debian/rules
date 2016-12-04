@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+buildvers := $(shell pyversions -sv)
+#build3vers := $(shell py3versions -sv)
+
+export PYBUILD_NAME=django-rest-swagger
+export PYBUILD_DISABLE=test
+
+# Don't compress .py files
+DEB_COMPRESS_EXCLUDE := .py
+
+TARGET_DISTRIBUTION := $(shell dpkg-parsechangelog  | awk '/Distribution/ { print $$2}')
+SUBSTVARS=
+
+%:
+	dh $@ --with python2,python3 --buildsystem=pybuild
+
+override_dh_auto_install:
+	dh_auto_install --buildsystem=pybuild
+	chmod 0644 $(CURDIR)/debian/python-django-rest-swagger/usr/lib/python2*/dist-packages/rest_framework_swagger/static/rest_framework_swagger/images/favicon.ico
+	chmod 0644 $(CURDIR)/debian/python3-django-rest-swagger/usr/lib/python3*/dist-packages/rest_framework_swagger/static/rest_framework_swagger/images/favicon.ico

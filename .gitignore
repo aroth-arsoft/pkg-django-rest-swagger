@@ -1,0 +1,9 @@
+/django_rest_swagger.egg-info/
+/rest_framework_swagger/
+/LICENSE
+/MANIFEST.in
+/PKG-INFO
+/README.md
+/setup.cfg
+/setup.py
+/.pybuild/
