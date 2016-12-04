@@ -1,3 +1,9 @@
+django-rest-swagger (2.1.0-0.1aroth2) yakkety; urgency=medium
+
+  * require setuptools
+
+ -- Andreas Roth <aroth@arsoft-online.com>  Sun, 04 Dec 2016 16:50:02 +0100
+
 django-rest-swagger (2.1.0-0.1aroth1) yakkety; urgency=medium
 
   * initial release
